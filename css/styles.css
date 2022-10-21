@@ -18,8 +18,6 @@ body {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.03em;
-
-  overflow: hidden;
 }
 
 .container {
@@ -118,15 +116,33 @@ img {
 }
 
 .menu-link {
+  position: relative;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   color: var(--primary-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+}
+
+.menu-link.current::after {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  opacity: 1;
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--accent-color);
+  border-radius: 2px;
+
+  content: '';
 }
 
 .menu-link:hover,
@@ -154,6 +170,10 @@ img {
   gap: 10px;
   padding-top: 32px;
   padding-bottom: 32px;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   color: var(--secondary-color);
   font-weight: 500;
@@ -212,6 +232,10 @@ img {
   padding: 10px 32px;
   min-width: 216px;
   margin: 0 auto;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   color: var(--white-color);
   background-color: var(--accent-color);
@@ -338,6 +362,11 @@ img {
   justify-content: center;
   width: 44px;
   height: 44px;
+
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   color: var(--color-icon);
   background-color: var(--white-color);
   border-radius: 50%;
@@ -369,6 +398,11 @@ img {
   height: 92px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   color: var(--color-icon);
 }
 .clients-icon {
@@ -411,6 +445,10 @@ img {
   font-style: normal;
   font-size: 14px;
   line-height: 1.71;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address:hover,
@@ -420,6 +458,10 @@ img {
 
 .address-contact {
   margin-bottom: 9px;
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   color: rgba(255, 255, 255, 0.6);
   font-style: normal;
@@ -457,6 +499,9 @@ img {
   z-index: 1;
   width: 100%;
   height: 100%;
+
+  transition-property: opacity, visibility;
+  transition-duration: 250ms;
 
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -523,6 +568,10 @@ img {
   border-radius: 4px;
   padding: 6px 22px;
 
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   background: var(--background-secondary-color);
   font-family: inherit;
   font-weight: 500;
@@ -535,7 +584,7 @@ img {
 .menu-button-item:focus,
 .menu-button-item:active {
   color: var(--white-color);
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
@@ -547,11 +596,44 @@ img {
   gap: 30px;
 }
 
+.portfolio-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-card-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--white-color);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.portfolio-card:hover .portfolio-card-description {
+  transform: translateY(0%);
+}
+
 .menu-content {
   padding: 20px 24px;
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
+}
+
+.menu-portfolio-link .portfolio-card {
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-portfolio-link:hover .portfolio-card,
